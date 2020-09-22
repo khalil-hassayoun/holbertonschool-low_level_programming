@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
-*jack_bauer - 0
+*jack_bauer 
 *Return: nothing
 */
 void jack_bauer(void)
