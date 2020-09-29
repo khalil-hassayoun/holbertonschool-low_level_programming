@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
 *incase - breaking the code into segment
 *@s: input string
