@@ -1,7 +1,8 @@
+
 #include "holberton.h"
 #include <stdio.h>
 /**
-*incase - breaking the code into segment
+*incase - break the code into segments
 *@s: input string
 *@num: the current number
 *Return: the int
