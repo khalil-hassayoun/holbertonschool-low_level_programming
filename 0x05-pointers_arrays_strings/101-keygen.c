@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
-*main - 0
+*main - i hate the hacker and his code
 *Return: 0
 */
 int main(void)
