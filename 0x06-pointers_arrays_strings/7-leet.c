@@ -1,25 +1,25 @@
 #include "holberton.h"
 /**
-*leet - 0
-*@r: string
-*Return: string
-*
+* leet - function that turns a few numbers into specific characters.
+* @str: string
+* Return: Leet
 */
-char *leet(char *r)
-{
-int i, j;
-char m[] = {'4', '3', '0', '7', '1'};
-char l[] = {'a', 'e', 'o', 't', 'l'};
-char u[] = {'A', 'E', 'O', 'T', 'L'};
 
-for (i = 0; r[i] != '\0'; i++)
+char *leet(char *str)
 {
-for (j = 0; j < 5; j++)
-{
-if ((r[i] == l[j]) || (r[i] == u[j]))
-				r[i] = m[j];
-}
-}
+	int i, j;
+	char num[] = {'4', '3', '0', '7', '1'};
+	char min[] = {'a', 'e', 'o', 't', 'l'};
+	char maj[] = {'A', 'E', 'O', 'T', 'L'};
 
-return (r);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; j < 5; j++)
+		{
+			if ((str[i] == min[j]) || (str[i] == maj[j]))
+				str[i] = num[j];
+		}
+	}
+
+	return (str);
 }
