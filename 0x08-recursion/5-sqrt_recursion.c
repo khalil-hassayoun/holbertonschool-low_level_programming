@@ -1,32 +1,33 @@
-
-
 #include "holberton.h"
-
 /**
- * sqrt_helper - helper function for sqrt
- *
- * @n: number to square
- * @c: counter for finding square
- * Return: returns square when completed, or returns itself recursively
- */
-int sqrt_helper(int n, int c)
+* con - function that returns the natural square root of a number
+* @i: integer
+* @n: integer
+* Return: 0
+*/
+
+int con(long int n, long int i)
 {
-	int sum;
-
-	sum = c * c;
-	if (n - sum == 0)
-		return (c);
-	else if (n < sum)
-		return (-1);
-	return (sqrt_helper(n, ++c));
+	if (i * i > n)
+	{
+	return (-1);
+	}
+		if (i * i == n)
+		{
+		return (i);
+		}
+return (con(n, i + 1));
 }
+
+
+
+
 /**
- * _sqrt_recursion - recursive sqrt implementation, for natural sqrs
- *
- *
- * @n: number to square
- * Return: returns -1 if no natural square, otherwise returns square
- */
+* _sqrt_recursion - function that returns the natural square root of a number
+* @n: integer
+* Return: 0
+*/
+
 int _sqrt_recursion(int n)
 {
 	if (n == 0)
