@@ -1,51 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /**
- * main - print
- * @argv: arguments given
- * @argc: number of arguments
- * Return: zero or 1 
- */
+*main - 0
+*@argc: number of strings
+*@argv: number of arguments
+*Return: 0
+*/
 int main(int argc, char *argv[])
 {
-	int input, coins = 0;
+	int cent, coin;
 
+	coin = 0;
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	input = atoi(argv[1]);
-	if (input < 0)
+	cent = atoi(argv[1]);
+	if (cent <= 0)
 	{
-		printf("%d\n", 0);
-		return (0);
+		printf("0\n");
+		return (1);
 	}
-	while (input >= 25)
+	while (cent > 0)
 	{
-		input -= 25;
-		coins++;
+		if (cent >= 25)
+		{
+			coin++;
+			cent -= 25;
+		} else if (cent >= 10)
+		{
+			coin++;
+			cent -= 10;
+		} else if (cent >= 5)
+		{
+			coin++;
+			cent -= 5;
+		} else if (cent >= 2)
+		{
+			coin++;
+			cent -= 2;
+		} else if (cent >= 1)
+		{
+			coin++;
+			cent -= 1;
+		}
 	}
-	while (input >= 10)
-	{
-		input -= 10;
-		coins++;
-	}
-	while (input >= 5)
-	{
-		input -= 5;
-		coins++;
-	}
-	if (input % 2 != 0)
-	{
-		coins++;
-		input -= 1;
-	}
-	while (input != 0)
-	{
-		coins++;
-		input -= 2;
-	}
-	printf("%d\n", coins);
+	printf("%d\n", coin);
 	return (0);
 }

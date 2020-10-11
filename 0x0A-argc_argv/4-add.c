@@ -1,57 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 /**
- * isnumber - determines if input is a number or not
- * @number: number to check
- * Return: 1 if number, 0 if not
- */
-int isnumber(char *number)
-{
-	int i;
-
-	i = 0;
-	while (number[i] != '\0')
-	{
-		if (isdigit(number[i]))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
-}
-
-/**
- * main - print
- * @argv: arguments
- * @argc: number of arguments
- * Return: zero
- */
+*main - 0
+*@argc: number of strings
+*@argv: number of arguments
+*Return: 0
+*/
 int main(int argc, char *argv[])
 {
-	int results, i;
+	int i, j, r;
 
-	results = 0;
-	if (argc < 3)
-	{
-		printf("0\n");
-		return (1);
-	}
 	i = 1;
+	r = 0;
 	while (i < argc)
 	{
-		if (isnumber(argv[i]))
+		j = 0;
+		while (j < argv[i][j])
 		{
-			results += atoi(argv[i]);
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
+			{
+				printf("Error\n");
+				return (1);
+			}
+			j++;
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+		r += atoi(argv[i]);
 		i++;
 	}
-	printf("%d\n", results);
+	printf("%d\n", r);
 	return (0);
 }
