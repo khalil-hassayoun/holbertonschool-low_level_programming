@@ -5,16 +5,15 @@
  * str_concat - add two string
  * @s1:string
  * @s2:string
- *
  * Return: string
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *p;
-	int i, j, r;
-	i = 0;
-	j = 0;
-	r = 0;
+char *p;
+int i, j, r;
+i = 0;
+j = 0;
+r = 0;
 	if (s1 != NULL)
 	{
 		while (s1[i])
