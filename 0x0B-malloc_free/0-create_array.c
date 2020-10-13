@@ -21,8 +21,8 @@ char *create_array(unsigned int size, char c)
 		return (NULL);
 	}
 	for (i = 0; i < size; i++)
-	{
-		p[i] = c;
-	}
+		*(p + i) = c;
+	*(p + i) = '\0';
+
 	return (p);
 }
