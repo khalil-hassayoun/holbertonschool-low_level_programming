@@ -4,8 +4,6 @@
 
 /**
  * _strlen - returns the length of a given string
- *
- *
  * @s: string to check the length of
  * Return: returns the length of the string
  */
@@ -15,54 +13,61 @@ int _strlen(char *s)
 
 	i = 0;
 	while (s[i] != '\0')
+{
+		s++;
 		i++;
+		}
 	return (i);
 }
 
 /**
- * _atoi - Converts a character array to an integer
- *
- * Description: Respects leading '-' and '+' signs
- * integer inside string may be preceded by any number of non-integer values
- * but will only copy the first whole integer found.
- *
- * @s: character array to convert
- * Return: returns integer from array, returns 0 if none found
- */
-int _atoi(char *s)
-{
-	int retval, i, neg;
-
-	i = 0;
-	retval = 0;
-	neg = -1;
-	while (s[i] != '\0' && (s[i] < '0' || s[i] > '9'))
-	{
-		if (s[i] == '-')
-			neg *= -1;
-		i++;
-	}
-	while (s[i] != '\0' && (s[i] >= '0' && s[i] <= '9'))
-		retval = (retval * 10) - (s[i++] - '0');
-	return (retval * neg);
-}
-
-/**
  * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * @c: character
+ * Return: On success 1
+ * On error, -1
  */
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-void errorexit(void)
+/**
+* _atoi - Transforms str to int
+* @s: string
+* Return: Integer
+*/
+int _atoi(char *s)
 {
-	int i;
+        int i, fn = 1, ne = 1;
+        unsigned int n = 0;
+
+        i = 0;
+        while (s[i] && fn)
+        {
+                if (s[i] == '-' && !n)
+                        ne *= -1;
+                if (s[i] >= '0' && s[i] <= '9' && fn)
+                {
+                        n *= 10;
+                        n += s[i] - '0';
+                }
+                else if (n > 0)
+                        fn = 0;
+                i++;
+        };
+        n *= ne;
+        return (n);
+}
+
+/**
+* fail - function that returns an error on exit
+* @void: void
+* Return: exit
+*/
+void fail(void)
+{
 	char *error;
+	int i;
 
 	error = "Error";
 
@@ -97,6 +102,5 @@ int main(int argc, char *argv[])
 	printf("n1: %d\nn2: %d\n", num1size, num2size);
 	return (0);
 }
-
 
 /*num1[i] - '0'  * num2[i] - '0';*/
