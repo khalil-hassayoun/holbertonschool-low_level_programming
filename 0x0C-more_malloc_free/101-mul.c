@@ -38,25 +38,25 @@ int _putchar(char c)
 */
 int _atoi(char *s)
 {
-        int i, fn = 1, ne = 1;
-        unsigned int n = 0;
+	 int i, fn = 1, ne = 1;
+	unsigned int n = 0;
 
-        i = 0;
-        while (s[i] && fn)
-        {
-                if (s[i] == '-' && !n)
-                        ne *= -1;
-                if (s[i] >= '0' && s[i] <= '9' && fn)
-                {
-                        n *= 10;
-                        n += s[i] - '0';
-                }
-                else if (n > 0)
-                        fn = 0;
-                i++;
-        };
-        n *= ne;
-        return (n);
+	i = 0;
+	while (s[i] && fn)
+	{
+		if (s[i] == '-' && !n)
+		ne *= -1;
+		if (s[i] >= '0' && s[i] <= '9' && fn)
+		{
+			n *= 10;
+			n += s[i] - '0';
+		}
+		else if (n > 0)
+		fn = 0;
+		i++;
+		};
+	n *= ne;
+	return (n);
 }
 
 /**
@@ -66,13 +66,13 @@ int _atoi(char *s)
 */
 void fail(void)
 {
-	char *error;
+	char *E;
 	int i;
 
-	error = "Error";
+	E = "Error";
 
-	for (i = 0; error[i] != '\0'; i++)
-		_putchar(error[i]);
+	for (i = 0; E[i] != '\0'; i++)
+		_putchar(E[i]);
 	_putchar('\n');
 	exit(98);
 }
@@ -87,7 +87,7 @@ void fail(void)
 int main(int argc, char *argv[])
 {
 	int i, j, num1size, num2size;
-
+	void errorexit(void);
 	(void) argv;
 	if (argc != 3)
 	{
