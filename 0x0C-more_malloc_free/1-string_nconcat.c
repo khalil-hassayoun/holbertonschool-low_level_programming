@@ -1,51 +1,47 @@
-#include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
+
 /**
- * string_nconcat - 0
- * @s1: string
- * @s2: string
- * @n: char number
- * Return: string
+ * _strlen - returns the length of a given string
+ *
+ *
+ * @s: string to check the length of
+ * Return: returns the length of the string
+ */
+unsigned int length(char *s)
+{
+	unsigned int i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
+ * string_nconcat - concats two strings, using n chars from s2,
+ * or all if n is over s2
+ *
+ * @s1: string one
+ * @s2: string two
+ * @n: bytes of s2 to use
+ * Return: returns pointer to string, or NULL if s1/s2 empty or malloc fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *p;
-	unsigned int i, j, t, r;
+	char *newstring;
+	unsigned int i, j;
 
-	if (s1 != NULL)
-	{
-		for (i = 0; s1[i] != '\0' ; ++i)
-			;
-	}
-	else
-		i = 0;
-	if (s2 != NULL)
-	{
-		for (j = 0; s2[j] != '\0' ; ++j)
-			;
-	}
-	else
-		r = 0;
-	if (n >= j)
-	{
-		p = malloc((i + j) * sizeof(s1));
-		r = j;
-	}
-	else
-	{
-		p = malloc((i + n) * sizeof(s1));
-		r = n;
-	}
-	if (p == NULL)
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	if ((int) n > _strlen(s2))
+		n = _strlen(s2);
+	newstring = malloc(_strlen(s1) + n + 1);
+	if (newstring == NULL)
 		return (NULL);
-	for (t = 0; t < (i + r); ++t)
-	{
-		if (t < i)
-			p[t] = s1[t];
-		else
-			p[t] = s2[t - i];
-	}
-	p[t + 1] = '\0';
-	return (p);
+	for (i = 0, j = 0; s1[i] != '\0'; i++, j++)
+		newstring[j] = s1[i];
+	for (i = 0; i != n; i++, j++)
+		newstring[j] = s2[i];
+	newstring[j] = '\0';
+	return (newstring);
 }
