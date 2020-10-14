@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * _calloc - mallocs assigned memory and sets to zero
  * @nmemb: number of memory spaces
