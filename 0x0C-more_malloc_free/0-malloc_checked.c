@@ -1,3 +1,5 @@
+#include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
  * malloc_checked - mallocs memory asked, exits with code 98 on failure
