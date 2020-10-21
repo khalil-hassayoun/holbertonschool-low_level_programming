@@ -15,6 +15,6 @@ i = 0;
 if (action != NULL && array != NULL)
 	{
 		for (i = 0; i < size; i++)
-		(*action)(array[i++]);
+		action(array[i]);
 	}
 }
