@@ -1,11 +1,10 @@
 #include "holberton.h"
-
 /**
- * *_strchr - locates a character in string
+ * *_strchr - locate a character in string
  *
- * @s: string to check
- * @c: char to check for
- * Return: returns first occurence of c in s, or NULL if not found
+ * @s: string 
+ * @c: char 
+ * Return: a located character.
  */
 char *_strchr(char *s, char c)
 {
