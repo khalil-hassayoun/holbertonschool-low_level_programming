@@ -2,19 +2,19 @@
 
 /**
  * free_list - frees a list_t linked list
- *
  * @head: head of linked list
  */
 void free_list(list_t *head)
 {
-	list_t *temp, *check;
+	list_t *temp;
 
 	temp = head;
 	while (head != NULL)
 	{
-		head = temp->next;
+		temp = head;
+		head = head->next;
 		free(temp->str);
 		free(temp);
-		temp = check;
 	}
+	free(head);
 }
